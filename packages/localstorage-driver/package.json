@@ -21,9 +21,6 @@
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
-  "dependencies": {
-    "@browser-storage/core": "^0.0.1-alpha.0"
-  },
   "typings": "./lib/index.d.ts",
   "files": [
     "src/**/*.d.ts",
@@ -33,6 +30,6 @@
     "dist/*"
   ],
   "devDependencies": {
-    "@browser-storage/core": "^0.0.0"
+    "@browser-storage/core": "^0.0.1-alpha.0"
   }
 }
