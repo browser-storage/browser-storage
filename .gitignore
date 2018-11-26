@@ -1,0 +1,8 @@
+node_modules
+.vscode
+.idea
+dist
+
+*.d.ts
+packages/**/src/**/*.js
+index.js

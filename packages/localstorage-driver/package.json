@@ -1,0 +1,38 @@
+{
+  "name": "@browser-storage/localstorage-driver",
+  "version": "0.0.0",
+  "description": "LocalStorage driver for BrowserStorage",
+  "keywords": [
+    "local",
+    "storage",
+    "browser",
+    "async"
+  ],
+  "author": "Igor Katsuba <ikatsuba@swiftcom.uk>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "dist/bundle.js",
+  "directories": {
+    "src": "src"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "@browser-storage/core": "^0.0.0"
+  },
+  "typings": "./lib/index.d.ts",
+  "files": [
+    "src/**/*.d.ts",
+    "src/**/*.js",
+    "index.d.ts",
+    "index.js",
+    "dist/*"
+  ],
+  "devDependencies": {
+    "@browser-storage/core": "^0.0.0"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "extends": "@katsuba/tslint",
+  "rules": {
+    "interface-name": false
+  }
+}

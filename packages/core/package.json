@@ -1,0 +1,32 @@
+{
+  "name": "@browser-storage/core",
+  "version": "0.0.0",
+  "description": "Browser storage core",
+  "keywords": [
+    "browser",
+    "async",
+    "storage",
+    "core"
+  ],
+  "author": "Igor Katsuba <ikatsuba@swiftcom.uk>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "dist/bundle.js",
+  "directories": {
+    "src": "src"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "typings": "./lib/index.d.ts",
+  "files": [
+    "src/**/*.d.ts",
+    "src/**/*.js",
+    "index.d.ts",
+    "index.js",
+    "dist/*"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "esnext",
+    "lib": [
+      "es6",
+      "dom",
+      "es7"
+    ],
+    "declaration": true,
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "@browser-storage/localstorage-driver": [
+        "packages/localstorage-driver/src"
+      ],
+      "@browser-storage/core": [
+        "packages/core/src"
+      ]
+    },
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "esModuleInterop": true,
+    "experimentalDecorators": true
+  }
+}
