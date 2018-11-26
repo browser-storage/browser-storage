@@ -1,6 +1,6 @@
 {
   "name": "@browser-storage/core",
-  "version": "0.0.1-alpha.1",
+  "version": "0.0.1-alpha.2",
   "description": "Browser storage core",
   "keywords": [
     "browser",
@@ -9,7 +9,7 @@
     "core"
   ],
   "author": "Igor Katsuba <ikatsuba@swiftcom.uk>",
-  "homepage": "",
+  "homepage": "https://github.com/browser-storage/browser-storage/tree/master/packages/core#readme",
   "license": "MIT",
   "main": "dist/bundle.js",
   "directories": {
@@ -23,10 +23,15 @@
   },
   "typings": "./lib/index.d.ts",
   "files": [
-    "src/**/*.d.ts",
-    "src/**/*.js",
-    "index.d.ts",
-    "index.js",
+    "index.ts",
+    "src/*",
     "dist/*"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/browser-storage/browser-storage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/browser-storage/browser-storage/issues"
+  }
 }

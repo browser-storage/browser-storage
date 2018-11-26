@@ -7,12 +7,14 @@
       "dom",
       "es7"
     ],
-    "declaration": true,
     "moduleResolution": "node",
     "baseUrl": "./",
     "paths": {
       "@browser-storage/localstorage-driver": [
         "packages/localstorage-driver/src"
+      ],
+      "@browser-storage/sessionstorage-driver": [
+        "packages/sessionstorage-driver/src"
       ],
       "@browser-storage/core": [
         "packages/core/src"

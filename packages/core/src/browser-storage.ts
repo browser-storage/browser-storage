@@ -4,7 +4,7 @@ import { Driver } from './driver';
 function whenReady(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
   const original: Function = descriptor.value;
 
-  descriptor.value = async function (...args) {
+  descriptor.value = async function value(...args) {
     await this.ready();
 
     return original.apply(this, args);

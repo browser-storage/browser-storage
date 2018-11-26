@@ -64,6 +64,7 @@ class UnsupportedDriver extends SupportedDriver {
 }
 
 describe('BrowserStorage', () => {
+
   test('#isSupported', async () => {
     const bs1 = new BrowserStorage(makeOptions([new SupportedDriver(), new UnsupportedDriver()]));
     const bs2 = new BrowserStorage(makeOptions([new UnsupportedDriver(), new SupportedDriver()]));

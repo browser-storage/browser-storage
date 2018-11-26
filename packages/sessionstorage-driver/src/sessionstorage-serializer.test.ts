@@ -1,11 +1,10 @@
-import { LocalstorageSerializer } from './localstorage-serializer';
+import { SessionstorageSerializer } from './sessionstorage-serializer';
 
-const serializer = new LocalstorageSerializer();
+const serializer = new SessionstorageSerializer();
 
 const value = { a: 'b', c: 1, d: true, e: ['f'] };
 
-describe('LocalstorageSerializer', () => {
-
+describe('SessionstorageSerializer', () => {
   test('#serialize', async () => {
     expect(await serializer.deserialize(await serializer.serialize(value)))
       .toEqual(value);
