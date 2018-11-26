@@ -1,5 +1,5 @@
 import { BrowserStorage, BrowserStorageOptions } from '@browser-storage/core';
-import { LocalstorageDriver } from './localstorage-driver';
+import { SessionstorageDriver } from './sessionstorage-driver';
 
 let st: BrowserStorage;
 const bsOptions: BrowserStorageOptions = {
@@ -28,13 +28,14 @@ const OBJECT_KEY = 'OBJECT_KEY';
 const KEYS = [NUMBER_KEY, STRING_KEY, BOOLEAN_KEY, OBJECT_KEY];
 
 beforeEach(() => {
-  st = new BrowserStorage({ ...bsOptions, drivers: new LocalstorageDriver() });
+  st = new BrowserStorage({ ...bsOptions, drivers: new SessionstorageDriver() });
 });
 
-describe('LocalstorageDriver', () => {
+describe('SessionstorageDriver', () => {
+
   test('#isSupported', async () => {
-    const localStorageDriver = new LocalstorageDriver();
-    expect(localStorageDriver.isSupported).toBe(true);
+    const sessionStorageDriver = new SessionstorageDriver();
+    expect(sessionStorageDriver.isSupported).toBe(true);
   });
 
   test('#ready', async () => {

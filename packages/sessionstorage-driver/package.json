@@ -1,15 +1,14 @@
 {
-  "name": "@browser-storage/localstorage-driver",
+  "name": "@browser-storage/sessionstorage-driver",
   "version": "0.0.1-alpha.1",
-  "description": "LocalStorage driver for BrowserStorage",
+  "description": "SssionStorage driver for BrowserStorage",
   "keywords": [
-    "local",
+    "session",
     "storage",
-    "browser",
-    "async"
+    "browser"
   ],
   "author": "Igor Katsuba <ikatsuba@swiftcom.uk>",
-  "homepage": "https://github.com/browser-storage/browser-storage/tree/master/packages/localstorage-driver#readme",
+  "homepage": "https://github.com/browser-storage/browser-storage/tree/master/packages/sessionstorage-driver#readme",
   "license": "MIT",
   "main": "dist/bundle.js",
   "directories": {
@@ -24,14 +23,14 @@
     "src/*",
     "dist/*"
   ],
-  "devDependencies": {
-    "@browser-storage/core": "^0.0.1-alpha.1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/browser-storage/browser-storage.git"
   },
   "bugs": {
     "url": "https://github.com/browser-storage/browser-storage/issues"
+  },
+  "devDependencies": {
+    "@browser-storage/core": "^0.0.1-alpha.1"
   }
 }

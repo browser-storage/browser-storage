@@ -7,7 +7,7 @@
     "test": "jest",
     "lint": "tslint -p .",
     "build": "lerna exec -- webpack",
-    "prepare": "npm run lint && tsc && npm run build"
+    "prepare": "npm run lint && npm run build"
   },
   "keywords": [
     "browser",

@@ -5,4 +5,5 @@ dist
 
 *.d.ts
 packages/**/src/**/*.js
+packages/**/lib
 index.js
