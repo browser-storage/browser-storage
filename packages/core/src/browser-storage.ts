@@ -1,4 +1,10 @@
-import { BrowserStorageEvent } from './browser-storage-event';
+import {
+  BrowserStorageEvent,
+  BrowserStorageEvents,
+  ClearBrowserStorageEvent,
+  RemoveItemBrowserStorageEvent,
+  SetItemBrowserStorageEvent
+} from './browser-storage-event';
 import { BrowserStorageOptions } from './browser-storage-options';
 import { Driver } from './driver';
 
@@ -14,7 +20,7 @@ function whenReady(target: any, propertyKey: string, descriptor: PropertyDescrip
 
 export const EVENT_KEY = '__browser_storage_event_';
 
-export type HandlerFn = (event: BrowserStorageEvent) => any;
+export type HandlerFn = (event: BrowserStorageEvents) => any;
 
 export class BrowserStorage implements Driver {
   private readonly _driver: Driver;
@@ -44,7 +50,18 @@ export class BrowserStorage implements Driver {
 
   @whenReady
   public async clear(): Promise<void> {
-    return this._driver.clear();
+    await this._driver.clear();
+
+    const event = new ClearBrowserStorageEvent({
+      name: this.options.name,
+      storeName: this.options.storeName,
+      version: this.options.version,
+      key: null,
+      oldValue: null,
+      newValue: null
+    });
+
+    this._triggerEvent(event);
   }
 
   @whenReady
@@ -74,7 +91,22 @@ export class BrowserStorage implements Driver {
 
   @whenReady
   public async removeItem(key: string): Promise<void> {
-    return this._driver.removeItem(key);
+    const oldValue = await this.hasItem(key)
+      ? await this.getItem(key)
+      : undefined;
+
+    await this._driver.removeItem(key);
+
+    const event = new RemoveItemBrowserStorageEvent({
+      name: this.options.name,
+      storeName: this.options.storeName,
+      version: this.options.version,
+      key,
+      oldValue,
+      newValue: null
+    });
+
+    this._triggerEvent(event);
   }
 
   @whenReady
@@ -85,7 +117,7 @@ export class BrowserStorage implements Driver {
 
     await this._driver.setItem<T>(key, item);
 
-    const event = new BrowserStorageEvent({
+    const event = new SetItemBrowserStorageEvent({
       name: this.options.name,
       storeName: this.options.storeName,
       version: this.options.version,
@@ -94,10 +126,7 @@ export class BrowserStorage implements Driver {
       newValue: item
     });
 
-    this._applyHandlers(event);
-    if (this.options.crossTabNotification) {
-      this._triggerCrossTabEvent(event);
-    }
+    this._triggerEvent(event);
 
     return item;
   }
@@ -131,8 +160,15 @@ export class BrowserStorage implements Driver {
     this._handlerStore.delete(fn);
   }
 
+  private _triggerEvent(event: BrowserStorageEvents) {
+    this._applyHandlers(event);
+    this._triggerCrossTabEvent(event);
+  }
+
   private _triggerCrossTabEvent(event: BrowserStorageEvent) {
-    localStorage.setItem(EVENT_KEY, BrowserStorageEvent.serialize(event));
+    if (this.options.crossTabNotification) {
+      localStorage.setItem(EVENT_KEY, BrowserStorageEvent.serialize(event.copyWith({ isCrossTab: true })));
+    }
   }
 
   private readonly _storageChange = (evt: StorageEvent) => {
@@ -150,7 +186,7 @@ export class BrowserStorage implements Driver {
     this._applyHandlers(event);
   };
 
-  private _applyHandlers(event: BrowserStorageEvent) {
+  private _applyHandlers(event: BrowserStorageEvents) {
     this._handlerStore.forEach(fn => fn(event));
   }
 
