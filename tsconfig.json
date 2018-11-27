@@ -18,6 +18,9 @@
       ],
       "@browser-storage/core": [
         "packages/core/src"
+      ],
+      "@browser-storage/websql-driver": [
+        "packages/websql-driver/src"
       ]
     },
     "typeRoots": [

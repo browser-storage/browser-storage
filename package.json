@@ -20,6 +20,7 @@
     "@katsuba/tslint": "^1.0.0",
     "@types/jest": "^23.3.9",
     "@types/node": "^10.12.10",
+    "@types/websql": "0.0.27",
     "jest": "^23.6.0",
     "lerna": "^3.4.3",
     "mock-local-storage": "^1.1.7",
@@ -28,7 +29,8 @@
     "tslint": "^5.11.0",
     "typescript": "^3.1.6",
     "webpack": "^4.26.1",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.1.2",
+    "websql": "^1.0.0"
   },
   "dependencies": {},
   "repository": {

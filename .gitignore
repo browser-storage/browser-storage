@@ -7,3 +7,4 @@ dist
 packages/**/src/**/*.js
 packages/**/lib
 index.js
+websqlDBName
