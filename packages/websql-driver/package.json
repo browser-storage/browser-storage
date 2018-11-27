@@ -1,0 +1,37 @@
+{
+  "name": "@browser-storage/websql-driver",
+  "version": "0.0.1-alpha.4",
+  "description": "Web SQL driver for BrowserStorage",
+  "keywords": [
+    "web",
+    "sql",
+    "browser",
+    "storage"
+  ],
+  "author": "Igor Katsuba <ikatsuba@swiftcom.uk>",
+  "homepage": "https://github.com/browser-storage/browser-storage/tree/master/packages/websql-driver#readme",
+  "license": "MIT",
+  "main": "dist/bundle.js",
+  "directories": {
+    "src": "src"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "typings": "./lib/index.d.ts",
+  "files": [
+    "index.ts",
+    "src/*",
+    "dist/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/browser-storage/browser-storage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/browser-storage/browser-storage/issues"
+  },
+  "devDependencies": {
+    "@browser-storage/core": "^0.0.1-alpha.4"
+  }
+}

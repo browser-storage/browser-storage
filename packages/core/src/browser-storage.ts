@@ -115,7 +115,7 @@ export class BrowserStorage implements Driver {
       ? await this.getItem(key)
       : undefined;
 
-    await this._driver.setItem<T>(key, item);
+    const result = await this._driver.setItem<T>(key, item);
 
     const event = new SetItemBrowserStorageEvent({
       name: this.options.name,
@@ -128,7 +128,7 @@ export class BrowserStorage implements Driver {
 
     this._triggerEvent(event);
 
-    return item;
+    return result;
   }
 
   public init(dbOptions?: BrowserStorageOptions): Promise<void> {

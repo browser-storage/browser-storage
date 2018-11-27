@@ -5,6 +5,7 @@ module.exports = {
     moduleNameMapper: {
         '@browser-storage/core': '<rootDir>/packages/core/src/index.ts',
         '@browser-storage/localstorage-driver': '<rootDir>/packages/localstorage-driver/src/index.ts',
-        '@browser-storage/sessionstorage-driver': '<rootDir>/packages/sessionstorage-driver/src/index.ts'
+        '@browser-storage/sessionstorage-driver': '<rootDir>/packages/sessionstorage-driver/src/index.ts',
+        '@browser-storage/websql-driver': '<rootDir>/packages/websql-driver/src/index.ts'
     }
 };
