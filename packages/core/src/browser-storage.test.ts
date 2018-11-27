@@ -1,13 +1,15 @@
-import { BrowserStorage } from './browser-storage';
+import { BrowserStorage, EVENT_KEY } from './browser-storage';
+import { BrowserStorageEvent } from './browser-storage-event';
 import { BrowserStorageOptions } from './browser-storage-options';
 import { Driver } from './driver';
 
-function makeOptions(drivers: BrowserStorageOptions['drivers']): BrowserStorageOptions {
+function makeOptions(drivers?: BrowserStorageOptions['drivers'], crossTabNotification?: BrowserStorageOptions['crossTabNotification']): BrowserStorageOptions {
   return {
     name: 'testName',
     storeName: 'testStoreName',
     version: 1,
-    drivers
+    drivers,
+    crossTabNotification
   };
 }
 
@@ -18,15 +20,15 @@ class SupportedDriver implements Driver {
     return undefined;
   }
 
-  public getItem<T>(key: string): Promise<T> {
-    return undefined;
+  public async getItem<T>(key: string): Promise<T> {
+    return JSON.parse(localStorage.getItem(key));
   }
 
-  public hasItem(key: string): Promise<boolean> {
-    return undefined;
+  public async hasItem(key: string): Promise<boolean> {
+    return localStorage.hasOwnProperty(key);
   }
 
-  public init(dbOptions: BrowserStorageOptions): Promise<this> {
+  public init(dbOptions: BrowserStorageOptions): Promise<void> {
     return undefined;
   }
 
@@ -54,7 +56,12 @@ class SupportedDriver implements Driver {
     return undefined;
   }
 
-  public setItem<T>(key: string, item: T): Promise<T> {
+  public async setItem<T>(key: string, item: T): Promise<T> {
+    localStorage.setItem(key, JSON.stringify(item));
+    return item;
+  }
+
+  public destroy(): Promise<void> {
     return undefined;
   }
 }
@@ -82,5 +89,61 @@ describe('BrowserStorage', () => {
     const bs = new BrowserStorage(makeOptions([unsupportedDriver, supportedDriver]));
 
     expect(await bs.getDriver()).toEqual(supportedDriver);
+  });
+
+  test('#events', async () => {
+    const supportedDriver = new SupportedDriver();
+    const bs = new BrowserStorage(makeOptions(supportedDriver, true));
+    const KEY = 'boolean';
+
+    function handle1(event: BrowserStorageEvent) {
+      const options = makeOptions();
+
+      expect(event.name).toEqual(options.name);
+      expect(event.storeName).toEqual(options.storeName);
+      expect(event.version).toEqual(options.version);
+      expect(event.key).toEqual(KEY);
+      expect(event.oldValue).toBeUndefined();
+      expect(event.newValue).toBeTruthy();
+    }
+
+    bs.addEventListener(handle1);
+
+    await bs.setItem(KEY, true);
+    bs.removeEventListener(handle1);
+
+    function handle2(event: BrowserStorageEvent) {
+      const options = makeOptions();
+
+      expect(event.name).toEqual(options.name);
+      expect(event.storeName).toEqual(options.storeName);
+      expect(event.version).toEqual(options.version);
+      expect(event.key).toEqual(KEY);
+      expect(event.oldValue).toBeTruthy();
+      expect(event.newValue).toBeFalsy();
+    }
+
+    bs.addEventListener(handle2);
+    await bs.setItem(KEY, false);
+
+    const fakeEvent = {
+      key: EVENT_KEY,
+      newValue: '',
+      oldValue: '',
+      storageArea: null,
+      url: ''
+    };
+    await (bs as any)._storageChange(fakeEvent as StorageEvent);
+
+    const otherEvent = {
+      key: 'otherEvent',
+      newValue: '',
+      oldValue: '',
+      storageArea: null,
+      url: ''
+    };
+    await (bs as any)._storageChange(otherEvent as StorageEvent);
+
+    await bs.destroy();
   });
 });

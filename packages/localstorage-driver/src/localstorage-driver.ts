@@ -77,10 +77,9 @@ export class LocalstorageDriver implements Driver {
     localStorage.removeItem(this.makeKey(key));
   }
 
-  public async init(options: BrowserStorageOptions): Promise<this> {
+  public async init(options: BrowserStorageOptions): Promise<void> {
     this.options = options;
     this._ready.resolve(true);
-    return this;
   }
 
   public async ready(): Promise<boolean> {
@@ -97,5 +96,9 @@ export class LocalstorageDriver implements Driver {
 
   private includes(fullKey: string) {
     return fullKey.indexOf(this.prefix) === 0;
+  }
+
+  public async destroy(): Promise<void> {
+    return undefined;
   }
 }

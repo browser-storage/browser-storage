@@ -5,4 +5,5 @@ export interface BrowserStorageOptions {
   storeName: string;
   version: number;
   drivers: Driver | Driver[];
+  crossTabNotification?: boolean;
 }
