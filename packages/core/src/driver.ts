@@ -5,7 +5,7 @@ export interface Driver {
 
   ready(): Promise<boolean>;
 
-  init(dbOptions: BrowserStorageOptions): Promise<this>;
+  init(dbOptions: BrowserStorageOptions): Promise<void>;
 
   getItem<T>(key: string): Promise<T>;
 
@@ -24,4 +24,6 @@ export interface Driver {
   setItem<T>(key: string, item: T): Promise<T>;
 
   clear(): Promise<void>;
+
+  destroy(): Promise<void>;
 }
