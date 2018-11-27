@@ -38,7 +38,7 @@ export class BrowserStorageEvent {
   public isCrossTab: boolean;
   public type: BrowserStorageEventTypes = BrowserStorageEventTypes.Default;
 
-  constructor({ name, storeName, version, key, oldValue, newValue, isCrossTab = true }: BrowserStorageEventOptions) {
+  constructor({ name, storeName, version, key, oldValue, newValue, isCrossTab = false }: BrowserStorageEventOptions) {
     this.name = name;
     this.storeName = storeName;
     this.version = version;
