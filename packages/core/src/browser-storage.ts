@@ -19,7 +19,7 @@ export type HandlerFn = (event: BrowserStorageEvent) => any;
 export class BrowserStorage implements Driver {
   private readonly _driver: Driver;
   private readonly options: BrowserStorageOptions;
-  private _handlerStore = new Set<HandlerFn>();
+  private readonly _handlerStore = new Set<HandlerFn>();
 
   constructor(options: BrowserStorageOptions) {
     this._driver = (Array.isArray(options.drivers)
@@ -135,7 +135,7 @@ export class BrowserStorage implements Driver {
     localStorage.setItem(EVENT_KEY, BrowserStorageEvent.serialize(event));
   }
 
-  private _storageChange = (evt: StorageEvent) => {
+  private readonly _storageChange = (evt: StorageEvent) => {
     if (evt.key !== EVENT_KEY) {
       return;
     }
