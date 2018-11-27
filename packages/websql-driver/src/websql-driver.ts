@@ -10,7 +10,7 @@ export class WebsqlDriver implements Driver {
   private readonly _serializer: WebsqlSerializer = new WebsqlSerializer();
   private readonly description: string;
   private readonly size: number;
-  private _ready: {
+  private readonly _ready: {
     reject?: (reason?: any) => void;
     resolve?: (value?: (PromiseLike<any> | any)) => void;
     promise?: Promise<any>;
