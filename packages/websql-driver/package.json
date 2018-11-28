@@ -1,6 +1,6 @@
 {
   "name": "@browser-storage/websql-driver",
-  "version": "0.0.1-alpha.6",
+  "version": "0.0.1-alpha.7",
   "description": "Web SQL driver for BrowserStorage",
   "keywords": [
     "web",
@@ -32,7 +32,7 @@
     "url": "https://github.com/browser-storage/browser-storage/issues"
   },
   "devDependencies": {
-    "@browser-storage/core": "^0.0.1-alpha.6"
+    "@browser-storage/core": "^0.0.1-alpha.7"
   },
   "dependencies": {
     "@types/websql": "^0.0.27"
