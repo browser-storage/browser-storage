@@ -1,3 +1,4 @@
+import { BrowserStorageOptions, Driver } from '@browser-storage/typings';
 import {
   BrowserStorageEvent,
   BrowserStorageEvents,
@@ -5,8 +6,6 @@ import {
   RemoveItemBrowserStorageEvent,
   SetItemBrowserStorageEvent
 } from './browser-storage-event';
-import { BrowserStorageOptions } from './browser-storage-options';
-import { Driver } from './driver';
 
 function whenReady(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
   const original: Function = descriptor.value;
@@ -167,7 +166,7 @@ export class BrowserStorage implements Driver {
 
   private _triggerCrossTabEvent(event: BrowserStorageEvent) {
     if (this.options.crossTabNotification) {
-      localStorage.setItem(EVENT_KEY, BrowserStorageEvent.serialize(event.copyWith({ isCrossTab: true })));
+      localStorage.setItem(EVENT_KEY, BrowserStorageEvent.serialize(event.copyWith({isCrossTab: true})));
     }
   }
 

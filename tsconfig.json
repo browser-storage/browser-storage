@@ -25,6 +25,9 @@
       ],
       "@browser-storage/indexeddb-driver": [
         "packages/indexeddb-driver/src"
+      ],
+      "@browser-storage/typings": [
+        "packages/typings/src"
       ]
     },
     "esModuleInterop": true,

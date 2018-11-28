@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "lint": "tslint -p .",
-    "build": "lerna exec -- webpack",
+    "build": "lerna exec --ignore @browser-storage/typings -- webpack && lerna exec --scope @browser-storage/typings -- tsc",
     "prepare": "lerna bootstrap && npm run lint && npm run build"
   },
   "keywords": [

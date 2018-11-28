@@ -1,4 +1,4 @@
-import { BrowserStorageOptions, Driver, Serializer } from '@browser-storage/core';
+import { BrowserStorageOptions, Driver, Serializer } from '@browser-storage/typings';
 import { LocalstorageSerializer } from './localstorage-serializer';
 
 export function makePrefix(options: BrowserStorageOptions) {
@@ -90,15 +90,15 @@ export class LocalstorageDriver implements Driver {
     return (await this.keys()).indexOf(key) > -1;
   }
 
+  public async destroy(): Promise<void> {
+    return undefined;
+  }
+
   private makeKey(key: string) {
     return this.prefix + key;
   }
 
   private includes(fullKey: string) {
     return fullKey.indexOf(this.prefix) === 0;
-  }
-
-  public async destroy(): Promise<void> {
-    return undefined;
   }
 }

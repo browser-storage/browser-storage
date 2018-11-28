@@ -1,6 +1,7 @@
-import { BrowserStorage, BrowserStorageOptions } from '@browser-storage/core';
+import { BrowserStorage } from '@browser-storage/core';
 // @ts-ignore
 const openDatabase = require('websql');
+import { BrowserStorageOptions } from '@browser-storage/typings';
 import { WebsqlDriver, WebsqlDriverOptions } from './websql-driver';
 
 window.openDatabase = openDatabase;

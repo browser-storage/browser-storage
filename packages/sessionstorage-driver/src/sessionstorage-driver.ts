@@ -1,4 +1,4 @@
-import { BrowserStorageOptions, Driver, Serializer } from '@browser-storage/core';
+import { BrowserStorageOptions, Driver, Serializer } from '@browser-storage/typings';
 import { SessionstorageSerializer } from './sessionstorage-serializer';
 
 export function makePrefix(options: BrowserStorageOptions) {

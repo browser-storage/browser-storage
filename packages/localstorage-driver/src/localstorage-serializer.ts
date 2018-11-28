@@ -1,4 +1,4 @@
-import { Serializer } from '@browser-storage/core';
+import { Serializer } from '@browser-storage/typings';
 
 export class LocalstorageSerializer implements Serializer {
   public async deserialize<T>(value: string): Promise<T> {

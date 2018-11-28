@@ -32,7 +32,7 @@
     "url": "https://github.com/browser-storage/browser-storage/issues"
   },
   "devDependencies": {
-    "@browser-storage/core": "^0.0.1-alpha.13"
+    "@browser-storage/typings": "^0.0.1-alpha.13"
   },
   "dependencies": {
     "@types/websql": "^0.0.27"

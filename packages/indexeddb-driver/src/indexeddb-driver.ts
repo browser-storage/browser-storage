@@ -1,4 +1,4 @@
-import { BrowserStorageOptions, Driver } from '@browser-storage/core';
+import { BrowserStorageOptions, Driver } from '@browser-storage/typings';
 
 export class IndexeddbDriver implements Driver {
   private _options: BrowserStorageOptions;

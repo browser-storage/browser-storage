@@ -7,6 +7,7 @@ module.exports = {
         '@browser-storage/localstorage-driver': '<rootDir>/packages/localstorage-driver/src/index.ts',
         '@browser-storage/sessionstorage-driver': '<rootDir>/packages/sessionstorage-driver/src/index.ts',
         '@browser-storage/websql-driver': '<rootDir>/packages/websql-driver/src/index.ts',
-        '@browser-storage/indexeddb-driver': '<rootDir>/packages/indexeddb-driver/src/index.ts'
+        '@browser-storage/indexeddb-driver': '<rootDir>/packages/indexeddb-driver/src/index.ts',
+        '@browser-storage/typings': '<rootDir>/packages/typings/src/index.ts'
     }
 };

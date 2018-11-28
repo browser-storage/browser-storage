@@ -1,4 +1,4 @@
-import { BrowserStorageOptions, Driver } from '@browser-storage/core';
+import { BrowserStorageOptions, Driver } from '@browser-storage/typings';
 import { WebsqlSerializer } from './websql-serializer';
 
 export interface WebsqlDriverOptions {

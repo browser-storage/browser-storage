@@ -1,7 +1,6 @@
+import { BrowserStorageOptions, Driver } from '@browser-storage/typings';
 import { BrowserStorage, EVENT_KEY } from './browser-storage';
 import { BrowserStorageEvent } from './browser-storage-event';
-import { BrowserStorageOptions } from './browser-storage-options';
-import { Driver } from './driver';
 
 function makeOptions(drivers?: BrowserStorageOptions['drivers'], crossTabNotification?: BrowserStorageOptions['crossTabNotification']): BrowserStorageOptions {
   return {

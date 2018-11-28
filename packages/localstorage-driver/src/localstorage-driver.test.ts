@@ -1,4 +1,5 @@
-import { BrowserStorage, BrowserStorageOptions } from '@browser-storage/core';
+import { BrowserStorage } from '@browser-storage/core';
+import { BrowserStorageOptions } from '@browser-storage/typings';
 import { LocalstorageDriver } from './localstorage-driver';
 
 let st: BrowserStorage;
