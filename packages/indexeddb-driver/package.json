@@ -1,0 +1,38 @@
+{
+  "name": "@browser-storage/indexeddb-driver",
+  "version": "0.0.1-alpha.13",
+  "description": "IndexedDb driver for BrowserStorage",
+  "keywords": [
+    "indexeddb",
+    "drowser",
+    "storage",
+    "driver"
+  ],
+  "author": "Igor Katsuba <ikatsuba@swiftcom.uk>",
+  "homepage": "https://github.com/browser-storage/browser-storage/tree/master/packages/indexeddb-driver#readme",
+  "license": "MIT",
+  "main": "dist/bundle.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/browser-storage/browser-storage.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/browser-storage/browser-storage/issues"
+  },
+  "devDependencies": {
+    "@browser-storage/core": "^0.0.1-alpha.13"
+  }
+}
