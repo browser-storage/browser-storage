@@ -1,6 +1,8 @@
 {
   "extends": "@katsuba/tslint",
   "rules": {
-    "interface-name": false
+    "interface-name": false,
+    "no-var-requires": false,
+    "no-empty-interface": false
   }
 }
