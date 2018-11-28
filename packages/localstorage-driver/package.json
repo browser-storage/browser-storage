@@ -24,7 +24,7 @@
     "src/**/*.d.ts",
     "dist/*"
   ],
-  "devDependencies": {
+  "dependencies": {
     "@browser-storage/typings": "^0.0.1-alpha.14"
   },
   "repository": {

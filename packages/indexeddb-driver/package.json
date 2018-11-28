@@ -31,7 +31,7 @@
   "bugs": {
     "url": "https://github.com/browser-storage/browser-storage/issues"
   },
-  "devDependencies": {
+  "dependencies": {
     "@browser-storage/typings": "^0.0.1-alpha.14"
   }
 }
