@@ -22,6 +22,9 @@
       ],
       "@browser-storage/websql-driver": [
         "packages/websql-driver/src"
+      ],
+      "@browser-storage/indexeddb-driver": [
+        "packages/indexeddb-driver/src"
       ]
     },
     "esModuleInterop": true,
