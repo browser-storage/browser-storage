@@ -8,7 +8,6 @@
       "es7"
     ],
     "declaration": true,
-    "emitDeclarationOnly": true,
     "moduleResolution": "node",
     "baseUrl": "./",
     "paths": {

@@ -36,5 +36,6 @@
   },
   "dependencies": {
     "@types/websql": "^0.0.27"
-  }
+  },
+  "gitHead": "696bf30fe7ca49ebb6a6aa7a269b33429c38263d"
 }
