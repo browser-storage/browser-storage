@@ -1,6 +1,6 @@
 {
   "name": "@browser-storage/sessionstorage-driver",
-  "version": "0.0.1-alpha.14",
+  "version": "0.0.1-alpha.15",
   "description": "SssionStorage driver for BrowserStorage",
   "keywords": [
     "session",
@@ -31,7 +31,7 @@
     "url": "https://github.com/browser-storage/browser-storage/issues"
   },
   "dependencies": {
-    "@browser-storage/typings": "^0.0.1-alpha.14"
+    "@browser-storage/typings": "^0.0.1-alpha.15"
   },
   "gitHead": "696bf30fe7ca49ebb6a6aa7a269b33429c38263d"
 }
