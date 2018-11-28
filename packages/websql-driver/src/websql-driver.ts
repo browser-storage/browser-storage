@@ -43,7 +43,7 @@ export class WebsqlDriver implements Driver {
 
   public async getItem<T>(key: string): Promise<T> {
     const result = await this._executeSql(`SELECT * FROM ${this.options.storeName} WHERE key = ? LIMIT 1`, [key]);
-    return result.rows.item.length && this._serializer.deserialize<T>(
+    return result.rows.length && this._serializer.deserialize<T>(
       result.rows.item(0).value
     );
   }
