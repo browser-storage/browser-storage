@@ -13,21 +13,20 @@
   "license": "MIT",
   "main": "dist/bundle.js",
   "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+    "src": "src"
   },
-  "files": [
-    "lib"
-  ],
   "publishConfig": {
     "access": "public"
   },
+  "typings": "./index.d.ts",
+  "files": [
+    "index.d.ts",
+    "src/*",
+    "dist/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/browser-storage/browser-storage.git"
-  },
-  "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
     "url": "https://github.com/browser-storage/browser-storage/issues"
