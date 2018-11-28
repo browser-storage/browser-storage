@@ -7,6 +7,8 @@
       "dom",
       "es7"
     ],
+    "declaration": true,
+    "emitDeclarationOnly": true,
     "moduleResolution": "node",
     "baseUrl": "./",
     "paths": {
@@ -23,10 +25,13 @@
         "packages/websql-driver/src"
       ]
     },
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
     "typeRoots": [
       "node_modules/@types"
-    ],
-    "esModuleInterop": true,
-    "experimentalDecorators": true
-  }
+    ]
+  },
+  "exclude": [
+    "**/**.test.ts"
+  ]
 }

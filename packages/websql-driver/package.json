@@ -20,8 +20,8 @@
   },
   "typings": "./lib/index.d.ts",
   "files": [
-    "index.ts",
-    "src/*",
+    "index.d.ts",
+    "src/**/*.d.ts",
     "dist/*"
   ],
   "repository": {
@@ -33,5 +33,8 @@
   },
   "devDependencies": {
     "@browser-storage/core": "^0.0.1-alpha.8"
+  },
+  "dependencies": {
+    "@types/websql": "^0.0.27"
   }
 }

@@ -19,7 +19,7 @@
   },
   "typings": "./lib/index.d.ts",
   "files": [
-    "index.ts",
+    "index.d.ts",
     "src/*",
     "dist/*"
   ],
