@@ -17,7 +17,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "typings": "./lib/index.d.ts",
+  "typings": "./index.d.ts",
   "files": [
     "index.d.ts",
     "src/*",

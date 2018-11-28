@@ -21,7 +21,7 @@
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
-  "typings": "./lib/index.d.ts",
+  "typings": "./index.d.ts",
   "files": [
     "index.d.ts",
     "src/*",
