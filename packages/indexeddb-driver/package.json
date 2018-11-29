@@ -1,6 +1,6 @@
 {
   "name": "@browser-storage/indexeddb-driver",
-  "version": "0.0.1-alpha.15",
+  "version": "0.0.1-alpha.16",
   "description": "IndexedDb driver for BrowserStorage",
   "keywords": [
     "indexeddb",
@@ -32,6 +32,6 @@
     "url": "https://github.com/browser-storage/browser-storage/issues"
   },
   "dependencies": {
-    "@browser-storage/typings": "^0.0.1-alpha.15"
+    "@browser-storage/typings": "^0.0.1-alpha.16"
   }
 }
