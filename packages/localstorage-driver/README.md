@@ -1,11 +1,4 @@
 # `@browser-storage/localstorage-driver`
 
-> TODO: description
-
-## Usage
-
-```
-const localstorageDriver = require('@browser-storage/localstorage-driver');
-
-// TODO: DEMONSTRATE API
-```
+>The tool is in deep alpha and is not intended for use in production.
+>[More info](https://github.com/browser-storage/browser-storage)
