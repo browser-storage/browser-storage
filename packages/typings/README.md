@@ -1,11 +1,4 @@
 # `@browser-storage/typings`
 
-> TODO: description
-
-## Usage
-
-```
-const typings = require('@browser-storage/typings');
-
-// TODO: DEMONSTRATE API
-```
+>The tool is in deep alpha and is not intended for use in production.
+>[More info](https://github.com/browser-storage/browser-storage)
