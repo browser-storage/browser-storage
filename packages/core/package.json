@@ -4,9 +4,14 @@
   "description": "Browser storage core",
   "keywords": [
     "browser",
-    "async",
     "storage",
-    "core"
+    "async",
+    "browser-storage",
+    "localstorage",
+    "sessionstorage",
+    "websql",
+    "async storage",
+    "indexeddb"
   ],
   "author": "Igor Katsuba <ikatsuba@swiftcom.uk>",
   "homepage": "https://github.com/browser-storage/browser-storage/tree/master/packages/core#readme",

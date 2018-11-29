@@ -12,7 +12,13 @@
   "keywords": [
     "browser",
     "storage",
-    "async"
+    "async",
+    "browser-storage",
+    "localstorage",
+    "sessionstorage",
+    "websql",
+    "async storage",
+    "indexeddb"
   ],
   "author": "Igor Katsuba <katsuba.igor@gmail.com>",
   "license": "MIT",

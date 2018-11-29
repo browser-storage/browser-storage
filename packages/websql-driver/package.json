@@ -3,10 +3,15 @@
   "version": "0.0.1-alpha.16",
   "description": "Web SQL driver for BrowserStorage",
   "keywords": [
-    "web",
-    "sql",
     "browser",
-    "storage"
+    "storage",
+    "async",
+    "browser-storage",
+    "localstorage",
+    "sessionstorage",
+    "websql",
+    "async storage",
+    "indexeddb"
   ],
   "author": "Igor Katsuba <ikatsuba@swiftcom.uk>",
   "homepage": "https://github.com/browser-storage/browser-storage/tree/master/packages/websql-driver#readme",
