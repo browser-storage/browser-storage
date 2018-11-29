@@ -2,6 +2,7 @@
 
 >The tool is in deep alpha and is not intended for use in production.
 
+[![Build Status](https://travis-ci.org/browser-storage/browser-storage.svg?branch=master)](https://travis-ci.org/browser-storage/browser-storage)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
 
 browser-storage is a async tool for storing and managing data in a browser. browser-storage does not use third-party packages for its work.
