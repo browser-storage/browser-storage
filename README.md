@@ -14,7 +14,7 @@ browser-storage is a async tool for storing and managing data in a browser. brow
 - [@browser-storage/websql-driver](https://github.com/browser-storage/browser-storage/tree/master/packages/websql-driver)
 - [@browser-storage/indexeddb-driver](https://github.com/browser-storage/browser-storage/tree/master/packages/indexeddb-driver)
 
-## Установка
+## Install
 
 ```sh
 $ npm i @browser-storage/core @browser-storage/localstorage-driver @browser-storage/websql-driver
