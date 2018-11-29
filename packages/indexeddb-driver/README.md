@@ -1,11 +1,4 @@
 # `@browser-storage/indexeddb-driver`
 
-> TODO: description
-
-## Usage
-
-```
-const indexeddbDriver = require('@browser-storage/indexeddb-driver');
-
-// TODO: DEMONSTRATE API
-```
+>The tool is in deep alpha and is not intended for use in production.
+>[More info](https://github.com/browser-storage/browser-storage)

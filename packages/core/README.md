@@ -1,11 +1,4 @@
 # `@browser-storage/core`
 
-> TODO: description
-
-## Usage
-
-```
-const core = require('@browser-storage/core');
-
-// TODO: DEMONSTRATE API
-```
+>The tool is in deep alpha and is not intended for use in production.
+>[More info](https://github.com/browser-storage/browser-storage)
