@@ -2,13 +2,6 @@
   "name": "browser-storage",
   "version": "0.0.0",
   "description": "Browser async storage",
-  "main": "index.js",
-  "scripts": {
-    "test": "jest",
-    "lint": "tslint -p .",
-    "build": "lerna exec --ignore @browser-storage/typings -- webpack && lerna exec --scope @browser-storage/typings -- tsc",
-    "prepare": "lerna bootstrap && npm run lint && npm run build"
-  },
   "keywords": [
     "browser",
     "storage",
@@ -22,24 +15,6 @@
   ],
   "author": "Igor Katsuba <katsuba.igor@gmail.com>",
   "license": "MIT",
-  "devDependencies": {
-    "@katsuba/tslint": "^1.0.0",
-    "@types/jest": "^23.3.9",
-    "@types/node": "^10.12.10",
-    "@types/websql": "0.0.27",
-    "fake-indexeddb": "^2.0.4",
-    "jest": "^23.6.0",
-    "lerna": "^3.4.3",
-    "mock-local-storage": "^1.1.7",
-    "ts-jest": "^23.10.5",
-    "ts-loader": "^5.3.0",
-    "tslint": "^5.11.0",
-    "typescript": "^3.1.6",
-    "webpack": "^4.26.1",
-    "webpack-cli": "^3.1.2",
-    "websql": "^1.0.0"
-  },
-  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/browser-storage/browser-storage.git"
