@@ -20,8 +20,8 @@ $ npm test
 # watch for changes
 $ npm test -- --watch
 
-# For a specific file (e.g., in core/command/__tests__/command.test.js)
-$ npm test -- --watch core/command
+# For a specific file (e.g., in index/command/__tests__/command.test.js)
+$ npm test -- --watch index/command
 ```
 
 ### Linting
