@@ -10,8 +10,8 @@ import {
 function whenReady(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
   const original: Function = descriptor.value;
 
-  descriptor.value = async function value(...args) {
-    await this.ready();
+  descriptor.value = async function value(...args: any[]) {
+    await (this as Driver).ready();
 
     return original.apply(this, args);
   };
@@ -29,12 +29,13 @@ export class BrowserStorage implements Driver {
   constructor(options: BrowserStorageOptions) {
     this._driver = (Array.isArray(options.drivers)
       ? options.drivers : [options.drivers])
-      .find(driver => driver.isSupported);
+      .find(driver => driver.isSupported) as Driver;
 
     this.options = {
-      ...options,
-      drivers: undefined
+      ...options
     };
+
+    delete this.options.drivers;
 
     this.init(options);
   }
@@ -166,7 +167,7 @@ export class BrowserStorage implements Driver {
 
   private _triggerCrossTabEvent(event: BrowserStorageEvent) {
     if (this.options.crossTabNotification) {
-      localStorage.setItem(EVENT_KEY, BrowserStorageEvent.serialize(event.copyWith({isCrossTab: true})));
+      localStorage.setItem(EVENT_KEY, BrowserStorageEvent.serialize(event.copyWith({ isCrossTab: true })));
     }
   }
 
@@ -175,7 +176,7 @@ export class BrowserStorage implements Driver {
       return;
     }
 
-    const serializeEvent = localStorage.getItem(EVENT_KEY);
+    const serializeEvent: string = localStorage.getItem(EVENT_KEY) as string;
     const event = BrowserStorageEvent.deserialize(serializeEvent);
 
     if (event.name !== this.options.name || event.storeName !== this.options.storeName) {

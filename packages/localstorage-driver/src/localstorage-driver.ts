@@ -1,5 +1,6 @@
 import { BrowserStorageOptions, Driver, Serializer } from '@browser-storage/typings';
 import { LocalstorageSerializer } from './localstorage-serializer';
+import { Deffer } from "@browser-storage/core";
 
 export function makePrefix(options: BrowserStorageOptions) {
   return [options.name, options.storeName, options.version].filter(f => !!f).join('/') + '/';
@@ -7,14 +8,9 @@ export function makePrefix(options: BrowserStorageOptions) {
 
 export class LocalstorageDriver implements Driver {
   private options: BrowserStorageOptions;
-  private readonly _ready: { promise?: Promise<boolean>; resolve?: Function; reject?: Function };
+  private readonly _ready = new Deffer<boolean>();
 
   constructor(private readonly serializer: Serializer = new LocalstorageSerializer) {
-    this._ready = {};
-    this._ready.promise = new Promise<boolean>((resolve, reject) => {
-      this._ready.reject = reject;
-      this._ready.resolve = resolve;
-    });
   }
 
   public get isSupported() {
@@ -31,7 +27,7 @@ export class LocalstorageDriver implements Driver {
 
   public async getItem<T>(key: string): Promise<T> {
     const result: string = localStorage
-      .getItem(this.makeKey(key));
+      .getItem(this.makeKey(key)) as string;
 
     return this.serializer.deserialize<T>(result);
   }
@@ -60,7 +56,7 @@ export class LocalstorageDriver implements Driver {
     const length = localStorage.length;
     const result = [];
     for (let i = 0; i < length; i++) {
-      const key = localStorage.key(i);
+      const key = localStorage.key(i) as string;
       if (this.includes(key)) {
         result.push(key.substring(this.prefix.length));
       }

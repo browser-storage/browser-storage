@@ -1,43 +1,62 @@
 {
   "name": "@browser-storage/sessionstorage-driver",
   "version": "0.0.1-alpha.16",
-  "description": "SssionStorage driver for BrowserStorage",
+  "description": "SessionStorage driver for BrowserStorage",
+  "author": "IKatsuba <katsuba.igor@gmail.com>",
+  "source": "pkg/dist-src/index.js",
+  "types": "pkg/dist-types/index.d.ts",
+  "main": "pkg/dist-node/index.js",
+  "module": "pkg/dist-web/index.js",
   "keywords": [
     "browser",
     "storage",
     "async",
-    "browser-storage",
+    "browser-storeage",
     "localstorage",
     "sessionstorage",
     "websql",
-    "async storage",
     "indexeddb"
   ],
-  "author": "Igor Katsuba <ikatsuba@swiftcom.uk>",
   "homepage": "https://github.com/browser-storage/browser-storage/tree/master/packages/sessionstorage-driver#readme",
   "license": "MIT",
-  "main": "dist/bundle.js",
   "directories": {
-    "src": "src"
+    "src": "src",
+    "test": "__tests__"
   },
+  "files": [
+    "src"
+  ],
   "publishConfig": {
     "access": "public"
   },
-  "typings": "./index.d.ts",
-  "files": [
-    "index.d.ts",
-    "src/**/*.d.ts",
-    "dist/*"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/browser-storage/browser-storage.git"
   },
+  "scripts": {
+    "build": "pack build"
+  },
   "bugs": {
     "url": "https://github.com/browser-storage/browser-storage/issues"
   },
-  "dependencies": {
-    "@browser-storage/typings": "^0.0.1-alpha.16"
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-ts-standard-pkg"
+      ],
+      [
+        "@pika/plugin-build-node"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ]
+    ]
   },
-  "gitHead": "696bf30fe7ca49ebb6a6aa7a269b33429c38263d"
+  "devDependencies": {
+    "typescript": "^3.3.3333"
+  },
+  "dependencies": {
+    "@browser-storage/core": "^0.0.1-alpha.16",
+    "@browser-storage/typings": "^0.0.1-alpha.16"
+  }
 }

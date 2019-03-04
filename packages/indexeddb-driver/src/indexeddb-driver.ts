@@ -1,21 +1,10 @@
 import { BrowserStorageOptions, Driver } from '@browser-storage/typings';
+import { Deffer } from "@browser-storage/core";
 
 export class IndexeddbDriver implements Driver {
   private _options: BrowserStorageOptions;
   private _db: IDBDatabase;
-  private readonly _ready: {
-    reject?: (reason?: any) => void;
-    resolve?: (value?: (PromiseLike<boolean> | boolean)) => void;
-    promise?: Promise<boolean>;
-  };
-
-  constructor() {
-    this._ready = {};
-    this._ready.promise = new Promise<boolean>((resolve, reject) => {
-      this._ready.resolve = resolve;
-      this._ready.reject = reject;
-    });
-  }
+  private readonly _ready: Deffer<boolean> = new Deffer<boolean>();
 
   public get isSupported() {
     return typeof window.indexedDB !== 'undefined';
@@ -26,8 +15,7 @@ export class IndexeddbDriver implements Driver {
     return this._getRequestResult(objectStore.clear());
   }
 
-  public destroy(): Promise<void> {
-    return undefined;
+  public async destroy(): Promise<void> {
   }
 
   public async getItem<T>(key: string): Promise<T> {

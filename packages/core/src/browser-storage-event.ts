@@ -2,7 +2,7 @@ export interface BrowserStorageEventOptions {
   name: string;
   storeName: string;
   version: number;
-  key: string;
+  key: string | null;
   oldValue: any;
   newValue: any;
   isCrossTab?: boolean;
@@ -15,7 +15,7 @@ export enum BrowserStorageEventTypes {
   Clear
 }
 
-function getEventFromJSON(json): BrowserStorageEvents {
+function getEventFromJSON(json: BrowserStorageEventOptions & { type: BrowserStorageEventTypes }): BrowserStorageEvents {
   switch (json.type) {
     case BrowserStorageEventTypes.Clear:
       return new ClearBrowserStorageEvent(json);
@@ -28,13 +28,13 @@ function getEventFromJSON(json): BrowserStorageEvents {
   }
 }
 
-export class BrowserStorageEvent {
+export class BrowserStorageEvent<T = any> {
   public readonly name: string;
   public readonly storeName: string;
   public readonly version: number;
-  public readonly key: string;
-  public readonly oldValue;
-  public readonly newValue;
+  public readonly key: string | null;
+  public readonly oldValue: T;
+  public readonly newValue: T;
   public isCrossTab: boolean;
   public type: BrowserStorageEventTypes = BrowserStorageEventTypes.Default;
 

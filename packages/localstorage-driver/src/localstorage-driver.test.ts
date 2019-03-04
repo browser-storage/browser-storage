@@ -7,7 +7,7 @@ const bsOptions: BrowserStorageOptions = {
   name: 'testName',
   storeName: 'testStoreName',
   version: 1,
-  drivers: undefined
+  drivers: []
 };
 
 const NUMBER_VALUE = 123;
@@ -39,8 +39,10 @@ describe('LocalstorageDriver', () => {
   });
 
   test('#ready', async () => {
-    expect(await st.ready()).not.toBeFalsy();
-    expect(await st.ready()).toBeTruthy();
+    let isReady = await st.ready();
+
+    expect(isReady).not.toBeFalsy();
+    expect(isReady).toBeTruthy();
   });
 
   test('#setItem', async () => {
@@ -90,7 +92,7 @@ describe('LocalstorageDriver', () => {
   });
 
   test('#iterate', async () => {
-    const result = {};
+    const result: any = {};
 
     await st.iterate(async (key, value, index) => {
       result[key] = value;

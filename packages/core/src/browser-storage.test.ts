@@ -2,7 +2,7 @@ import { BrowserStorageOptions, Driver } from '@browser-storage/typings';
 import { BrowserStorage, EVENT_KEY } from './browser-storage';
 import { BrowserStorageEvent } from './browser-storage-event';
 
-function makeOptions(drivers?: BrowserStorageOptions['drivers'], crossTabNotification?: BrowserStorageOptions['crossTabNotification']): BrowserStorageOptions {
+function makeOptions(drivers: BrowserStorageOptions['drivers'] = [], crossTabNotification?: BrowserStorageOptions['crossTabNotification']): BrowserStorageOptions {
   return {
     name: 'testName',
     storeName: 'testStoreName',
@@ -15,43 +15,43 @@ function makeOptions(drivers?: BrowserStorageOptions['drivers'], crossTabNotific
 class SupportedDriver implements Driver {
   public isSupported: boolean = true;
 
-  public clear(): Promise<void> {
+  public async clear(): Promise<void> {
     return undefined;
   }
 
   public async getItem<T>(key: string): Promise<T> {
-    return JSON.parse(localStorage.getItem(key));
+    return JSON.parse(localStorage.getItem(key) || 'null');
   }
 
   public async hasItem(key: string): Promise<boolean> {
     return localStorage.hasOwnProperty(key);
   }
 
-  public init(dbOptions: BrowserStorageOptions): Promise<void> {
+  public async init(dbOptions: BrowserStorageOptions): Promise<void> {
     return undefined;
   }
 
-  public iterate<T>(iterator: (key: string, value: T, index: number) => any): Promise<void> {
+  public async iterate<T>(iterator: (key: string, value: T, index: number) => any): Promise<void> {
     return undefined;
   }
 
-  public key(index: number): Promise<string> {
-    return undefined;
+  public async key(index: number): Promise<string> {
+    return '';
   }
 
-  public keys(): Promise<string[]> {
-    return undefined;
+  public async keys(): Promise<string[]> {
+    return [];
   }
 
-  public length(): Promise<number> {
-    return undefined;
+  public async length(): Promise<number> {
+    return 0;
   }
 
-  public ready(): Promise<boolean> {
-    return undefined;
+  public async ready(): Promise<boolean> {
+    return true;
   }
 
-  public removeItem(key: string): Promise<void> {
+  public async removeItem(key: string): Promise<void> {
     return undefined;
   }
 
@@ -60,7 +60,7 @@ class SupportedDriver implements Driver {
     return item;
   }
 
-  public destroy(): Promise<void> {
+  public async destroy(): Promise<void> {
     return undefined;
   }
 }

@@ -2,27 +2,27 @@
   "name": "@browser-storage/typings",
   "version": "0.0.1-alpha.16",
   "description": "Typings for BrowserStorage",
+  "author": "IKatsuba <katsuba.igor@gmail.com>",
+  "homepage": "https://github.com/browser-storage/browser-storage/tree/master/packages/typings#readme",
+  "license": "MIT",
+  "source": "pkg/dist-src/index.js",
+  "types": "pkg/dist-types/index.d.ts",
   "keywords": [
     "browser",
     "storage",
     "async",
-    "browser-storage",
+    "browser-storeage",
     "localstorage",
     "sessionstorage",
     "websql",
-    "async storage",
     "indexeddb"
   ],
-  "author": "Igor Katsuba <ikatsuba@swiftcom.uk>",
-  "homepage": "https://github.com/browser-storage/browser-storage/tree/master/packages/typings#readme",
-  "license": "MIT",
-  "typings": "index,d.ts",
   "directories": {
-    "src": "lib"
+    "src": "src",
+    "test": "__tests__"
   },
   "files": [
-    "index.d.ts",
-    "src/**/*.d.ts"
+    "src"
   ],
   "publishConfig": {
     "access": "public"
@@ -31,7 +31,20 @@
     "type": "git",
     "url": "git+https://github.com/browser-storage/browser-storage.git"
   },
+  "scripts": {
+    "build": "pack build"
+  },
   "bugs": {
     "url": "https://github.com/browser-storage/browser-storage/issues"
+  },
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-ts-standard-pkg"
+      ]
+    ]
+  },
+  "devDependencies": {
+    "typescript": "^3.3.3333"
   }
 }

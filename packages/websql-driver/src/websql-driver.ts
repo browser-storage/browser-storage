@@ -1,5 +1,6 @@
 import { BrowserStorageOptions, Driver } from '@browser-storage/typings';
 import { WebsqlSerializer } from './websql-serializer';
+import { Deffer } from "@browser-storage/core";
 
 export interface WebsqlDriverOptions {
   description?: string;
@@ -8,25 +9,15 @@ export interface WebsqlDriverOptions {
 
 export class WebsqlDriver implements Driver {
   private readonly _serializer: WebsqlSerializer = new WebsqlSerializer();
-  private readonly description: string;
+  private readonly description: string | undefined;
   private readonly size: number;
-  private readonly _ready: {
-    reject?: (reason?: any) => void;
-    resolve?: (value?: (PromiseLike<any> | any)) => void;
-    promise?: Promise<any>;
-  };
+  private readonly _ready: Deffer<boolean> = new Deffer<boolean>();
   private options: BrowserStorageOptions;
   private db: Database;
 
-  constructor({description, size}: WebsqlDriverOptions) {
+  constructor({ description, size }: WebsqlDriverOptions) {
     this.description = description;
     this.size = size;
-
-    this._ready = {};
-    this._ready.promise = new Promise((resolve, reject) => {
-      this._ready.resolve = resolve;
-      this._ready.reject = reject;
-    });
   }
 
   public get isSupported(): boolean {
@@ -37,15 +28,12 @@ export class WebsqlDriver implements Driver {
     await this._executeSql(`DELETE FROM ${this.options.storeName}`);
   }
 
-  public destroy(): Promise<void> {
-    return undefined;
+  public async destroy(): Promise<void> {
   }
 
   public async getItem<T>(key: string): Promise<T> {
     const result = await this._executeSql(`SELECT * FROM ${this.options.storeName} WHERE key = ? LIMIT 1`, [key]);
-    return result.rows.length
-      ? this._serializer.deserialize<T>(result.rows.item(0).value)
-      : null;
+    return this._serializer.deserialize<T>(result.rows.item(0).value);
   }
 
   public async hasItem(key: string): Promise<boolean> {
@@ -130,6 +118,6 @@ export class WebsqlDriver implements Driver {
   }
 
   private _createDB(): Database {
-    return window.openDatabase(this.options.name, this.options.version.toString(), this.description, this.size);
+    return window.openDatabase(this.options.name, this.options.version.toString(), this.description || '', this.size);
   }
 }

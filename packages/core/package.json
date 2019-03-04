@@ -2,45 +2,60 @@
   "name": "@browser-storage/core",
   "version": "0.0.1-alpha.16",
   "description": "Browser storage core",
+  "source": "pkg/dist-src/index.js",
+  "types": "pkg/dist-types/index.d.ts",
+  "main": "pkg/dist-node/index.js",
+  "module": "pkg/dist-web/index.js",
   "keywords": [
     "browser",
     "storage",
     "async",
-    "browser-storage",
+    "browser-storeage",
     "localstorage",
     "sessionstorage",
     "websql",
-    "async storage",
     "indexeddb"
   ],
-  "author": "Igor Katsuba <ikatsuba@swiftcom.uk>",
+  "author": "IKatsuba <katsuba.igor@gmail.com>",
   "homepage": "https://github.com/browser-storage/browser-storage/tree/master/packages/core#readme",
   "license": "MIT",
-  "main": "dist/bundle.js",
   "directories": {
-    "src": "src"
+    "src": "src",
+    "test": "__tests__"
   },
+  "files": [
+    "src"
+  ],
   "publishConfig": {
     "access": "public"
   },
-  "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
-  },
-  "typings": "./index.d.ts",
-  "files": [
-    "index.d.ts",
-    "src/**/*.d.ts",
-    "dist/*"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/browser-storage/browser-storage.git"
   },
+  "scripts": {
+    "build": "pack build"
+  },
   "bugs": {
     "url": "https://github.com/browser-storage/browser-storage/issues"
   },
-  "gitHead": "696bf30fe7ca49ebb6a6aa7a269b33429c38263d",
   "dependencies": {
     "@browser-storage/typings": "^0.0.1-alpha.16"
+  },
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-ts-standard-pkg"
+      ],
+      [
+        "@pika/plugin-build-node"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ]
+    ]
+  },
+  "devDependencies": {
+    "typescript": "^3.3.3333"
   }
 }

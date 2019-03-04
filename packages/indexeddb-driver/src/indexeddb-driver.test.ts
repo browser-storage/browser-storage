@@ -10,7 +10,7 @@ const bsOptions: BrowserStorageOptions = {
   name: 'testName',
   storeName: 'testStoreName',
   version: 1,
-  drivers: undefined
+  drivers: []
 };
 
 const NUMBER_VALUE = 123;
@@ -93,9 +93,9 @@ describe('IndexeddbDriver', () => {
   });
 
   test('#iterate', async () => {
-    const result = {};
+    const result: any = {};
 
-    await st.iterate(async (key, value, index) => {
+    await st.iterate(async (key: string, value, index) => {
       result[key] = value;
     });
 

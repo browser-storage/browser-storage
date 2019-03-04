@@ -1,10 +1,6 @@
 node_modules
 .vscode
 .idea
-dist
+pkg
 
-*.d.ts
-packages/**/src/**/*.js
-packages/**/lib
-index.js
 websqlDBName

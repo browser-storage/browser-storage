@@ -10,4 +10,4 @@ install:
 jobs:
   include:
     - stage: test
-      script: npm test
+      script: npm run build && npm test

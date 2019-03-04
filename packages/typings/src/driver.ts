@@ -5,7 +5,7 @@ export interface Driver {
 
   ready(): Promise<boolean>;
 
-  init(dbOptions: BrowserStorageOptions): Promise<void>;
+  init(dbOptions?: BrowserStorageOptions): Promise<void>;
 
   getItem<T>(key: string): Promise<T>;
 

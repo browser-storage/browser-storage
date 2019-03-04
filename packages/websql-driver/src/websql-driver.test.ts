@@ -1,8 +1,9 @@
 import { BrowserStorage } from '@browser-storage/core';
-// @ts-ignore
-const openDatabase = require('websql');
 import { BrowserStorageOptions } from '@browser-storage/typings';
 import { WebsqlDriver, WebsqlDriverOptions } from './websql-driver';
+
+// @ts-ignore
+const openDatabase = require('websql');
 
 window.openDatabase = openDatabase;
 
@@ -11,7 +12,7 @@ const bsOptions: BrowserStorageOptions = {
   name: 'websqlDBName',
   storeName: 'testStoreName',
   version: 1,
-  drivers: undefined
+  drivers: []
 };
 
 const websqlOptions: WebsqlDriverOptions = {
@@ -38,7 +39,7 @@ const OBJECT_KEY = 'OBJECT_KEY';
 const KEYS = [NUMBER_KEY, STRING_KEY, BOOLEAN_KEY, OBJECT_KEY];
 
 beforeEach(() => {
-  st = new BrowserStorage({...bsOptions, drivers: new WebsqlDriver(websqlOptions)});
+  st = new BrowserStorage({...bsOptions, drivers: [new WebsqlDriver(websqlOptions)]});
 });
 
 describe('WebsqlDriver', () => {
@@ -100,7 +101,7 @@ describe('WebsqlDriver', () => {
   });
 
   test('#iterate', async () => {
-    const result = {};
+    const result: any = {};
 
     await st.iterate(async (key, value, index) => {
       result[key] = value;

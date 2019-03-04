@@ -9,7 +9,7 @@ browser-storage is a async tool for storing and managing data in a browser. brow
 
 ## Packages
 
-- [@browser-storage/core](https://github.com/browser-storage/browser-storage/tree/master/packages/core)
+- [@browser-storage/index](https://github.com/browser-storage/browser-storage/tree/master/packages/index)
 - [@browser-storage/localstorage-driver](https://github.com/browser-storage/browser-storage/tree/master/packages/localstorage-driver)
 - [@browser-storage/sessionstorage-driver](https://github.com/browser-storage/browser-storage/tree/master/packages/sessionstorage-driver)
 - [@browser-storage/websql-driver](https://github.com/browser-storage/browser-storage/tree/master/packages/websql-driver)
@@ -18,14 +18,14 @@ browser-storage is a async tool for storing and managing data in a browser. brow
 ## Install
 
 ```sh
-$ npm i @browser-storage/core @browser-storage/localstorage-driver @browser-storage/websql-driver
+$ npm i @browser-storage/index @browser-storage/localstorage-driver @browser-storage/websql-driver
 
 ```
 
 ## Example
 
 ```typescript
-import { BrowserStorage } from '@browser-storage/core';
+import { BrowserStorage } from '@browser-storage/index';
 import { LocalstorageDriver } from '@browser-storage/localstorage-driver';
 import { WebsqlDriver } from '@browser-storage/websql-driver';
 

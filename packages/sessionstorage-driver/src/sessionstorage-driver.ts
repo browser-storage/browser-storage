@@ -1,5 +1,6 @@
 import { BrowserStorageOptions, Driver, Serializer } from '@browser-storage/typings';
 import { SessionstorageSerializer } from './sessionstorage-serializer';
+import { Deffer } from "@browser-storage/core";
 
 export function makePrefix(options: BrowserStorageOptions) {
   return [options.name, options.storeName, options.version].filter(f => !!f).join('/') + '/';
@@ -7,14 +8,9 @@ export function makePrefix(options: BrowserStorageOptions) {
 
 export class SessionstorageDriver implements Driver {
   private options: BrowserStorageOptions;
-  private readonly _ready: { promise?: Promise<boolean>; resolve?: Function; reject?: Function };
+  private readonly _ready: Deffer<boolean> = new Deffer<boolean>();
 
   constructor(private readonly serializer: Serializer = new SessionstorageSerializer) {
-    this._ready = {};
-    this._ready.promise = new Promise<boolean>((resolve, reject) => {
-      this._ready.reject = reject;
-      this._ready.resolve = resolve;
-    });
   }
 
   public get isSupported() {
@@ -30,7 +26,7 @@ export class SessionstorageDriver implements Driver {
   }
 
   public async getItem<T>(key: string): Promise<T> {
-    const result: string = sessionStorage
+    const result: string | null = sessionStorage
       .getItem(this.makeKey(key));
 
     return this.serializer.deserialize<T>(result);
@@ -60,7 +56,7 @@ export class SessionstorageDriver implements Driver {
     const length = sessionStorage.length;
     const result = [];
     for (let i = 0; i < length; i++) {
-      const key = sessionStorage.key(i);
+      const key = sessionStorage.key(i) as string;
       if (this.includes(key)) {
         result.push(key.substring(this.prefix.length));
       }
