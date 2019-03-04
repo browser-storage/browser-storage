@@ -1,3 +1,5 @@
+![](images/logo.png)
+
 # browser-storage
 
 >The tool is in deep alpha and is not intended for use in production.
