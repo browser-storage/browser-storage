@@ -1,6 +1,6 @@
 {
   "name": "@browser-storage/core",
-  "version": "0.0.1-alpha.16",
+  "version": "0.0.1-beta.0",
   "description": "Browser storage core",
   "source": "pkg/dist-src/index.js",
   "types": "pkg/dist-types/index.d.ts",
@@ -40,7 +40,7 @@
     "url": "https://github.com/browser-storage/browser-storage/issues"
   },
   "dependencies": {
-    "@browser-storage/typings": "^0.0.1-alpha.16"
+    "@browser-storage/typings": "^0.0.1-beta.0"
   },
   "@pika/pack": {
     "pipeline": [
