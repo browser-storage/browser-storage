@@ -19,7 +19,7 @@ browser-storage is a async tool for storing and managing data in a browser. brow
 ## Install
 
 ```sh
-$ npm i @browser-storage/index @browser-storage/localstorage-driver @browser-storage/websql-driver
+$ npm i @browser-storage/core @browser-storage/localstorage-driver @browser-storage/websql-driver
 
 ```
 
