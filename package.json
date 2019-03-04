@@ -31,5 +31,8 @@
     "lerna": "^3.13.1",
     "tslint": "^5.13.1",
     "typescript": "^3.3.3333"
+  },
+  "dependencies": {
+    "@types/websql": "0.0.27"
   }
 }

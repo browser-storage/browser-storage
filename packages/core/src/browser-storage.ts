@@ -167,7 +167,7 @@ export class BrowserStorage implements Driver {
 
   private _triggerCrossTabEvent(event: BrowserStorageEvent) {
     if (this.options.crossTabNotification) {
-      localStorage.setItem(EVENT_KEY, BrowserStorageEvent.serialize(event.copyWith({isCrossTab: true})));
+      localStorage.setItem(EVENT_KEY, BrowserStorageEvent.serialize(event.copyWith({ isCrossTab: true })));
     }
   }
 
