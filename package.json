@@ -2,6 +2,9 @@
   "name": "browser-storage",
   "version": "0.0.0",
   "description": "Browser async storage",
+  "scripts": {
+    "build": "lerna exec  --concurrency 1 --stream -- pack build"
+  },
   "keywords": [
     "browser",
     "storage",
