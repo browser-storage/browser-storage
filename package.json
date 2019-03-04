@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "description": "Browser async storage",
   "scripts": {
-    "build": "lerna exec  --concurrency 1 --stream -- pack build"
+    "postinstall": "lerna bootstrap",
+    "build": "lerna run build --stream",
+    "test": "jest"
   },
   "keywords": [
     "browser",
@@ -36,6 +38,12 @@
     "typescript": "^3.3.3333"
   },
   "dependencies": {
-    "@types/websql": "0.0.27"
+    "@types/jest": "^24.0.9",
+    "@types/node": "^11.10.4",
+    "@types/websql": "0.0.27",
+    "fake-indexeddb": "^2.0.5",
+    "jest": "^24.1.0",
+    "ts-jest": "^24.0.0",
+    "websql": "^1.0.0"
   }
 }

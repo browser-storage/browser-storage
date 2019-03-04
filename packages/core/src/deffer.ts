@@ -5,7 +5,7 @@ export class Deffer<T> {
   constructor() {
     this._promise = new Promise<T>((resolve, reject) => {
       this._reject = reject;
-      this._resolve = reject;
+      this._resolve = resolve;
     });
   }
 
