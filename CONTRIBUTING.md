@@ -9,7 +9,6 @@ To get started with the repo:
 $ git clone git@github.com:browser-storage/browser-storage.git
 $ cd lerna
 $ npm i
-$ npx lerna bootstrap
 ```
 
 ### Run Tests
@@ -19,15 +18,6 @@ $ npm test
 
 # watch for changes
 $ npm test -- --watch
-
-# For a specific file (e.g., in index/command/__tests__/command.test.js)
-$ npm test -- --watch index/command
-```
-
-### Linting
-
-```sh
-$ npm run lint
 ```
 
 ### Coverage

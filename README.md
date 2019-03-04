@@ -9,11 +9,12 @@ browser-storage is a async tool for storing and managing data in a browser. brow
 
 ## Packages
 
-- [@browser-storage/index](https://github.com/browser-storage/browser-storage/tree/master/packages/index)
+- [@browser-storage/core](https://github.com/browser-storage/browser-storage/tree/master/packages/core)
 - [@browser-storage/localstorage-driver](https://github.com/browser-storage/browser-storage/tree/master/packages/localstorage-driver)
 - [@browser-storage/sessionstorage-driver](https://github.com/browser-storage/browser-storage/tree/master/packages/sessionstorage-driver)
 - [@browser-storage/websql-driver](https://github.com/browser-storage/browser-storage/tree/master/packages/websql-driver)
 - [@browser-storage/indexeddb-driver](https://github.com/browser-storage/browser-storage/tree/master/packages/indexeddb-driver)
+- [@browser-storage/ngx-browser-storage](https://github.com/browser-storage/ngx-browser-storage)
 
 ## Install
 
@@ -25,7 +26,7 @@ $ npm i @browser-storage/index @browser-storage/localstorage-driver @browser-sto
 ## Example
 
 ```typescript
-import { BrowserStorage } from '@browser-storage/index';
+import { BrowserStorage } from '@browser-storage/core';
 import { LocalstorageDriver } from '@browser-storage/localstorage-driver';
 import { WebsqlDriver } from '@browser-storage/websql-driver';
 
@@ -42,5 +43,42 @@ const storage = new BrowserStorage({
 storage.setItem('a', 'b');
 
 storage.getItem('a').then(console.log);
+
+```
+
+```typescript
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppComponent } from './app.component';
+import { NgxBrowserStorageModule, NgxBrowserStorageService } from '@browser-storage/ngx-browser-storage';
+import { LocalstorageDriver } from '@browser-storage/localstorage-driver';
+import { mergeMap, tap } from 'rxjs/operators';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    NgxBrowserStorageModule.forRoot({
+      version: 0,
+      storeName: 'test',
+      name: 'test',
+      drivers: new LocalstorageDriver()
+    })
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule {
+  constructor(storage: NgxBrowserStorageService) {
+    storage.setItem('a', 1).pipe(
+      tap(console.log),
+      mergeMap(() => storage.getItem('a')),
+      tap(console.log)
+    ).subscribe();
+  }
+}
 
 ```
