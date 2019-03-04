@@ -1,10 +1,10 @@
 import { BrowserStorageOptions, Driver } from '@browser-storage/typings';
-import { Deffer } from "@browser-storage/core";
+import { Defer } from "@browser-storage/core";
 
 export class IndexeddbDriver implements Driver {
   private _options: BrowserStorageOptions;
   private _db: IDBDatabase;
-  private readonly _ready: Deffer<boolean> = new Deffer<boolean>();
+  private readonly _ready: Defer<boolean> = new Defer<boolean>();
 
   public get isSupported() {
     return typeof window.indexedDB !== 'undefined';

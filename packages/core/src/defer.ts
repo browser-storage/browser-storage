@@ -1,4 +1,4 @@
-export class Deffer<T> {
+export class Defer<T> {
   private _resolve: (result: T) => any;
   private _reject: (result: T) => any;
 

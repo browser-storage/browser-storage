@@ -1,6 +1,6 @@
 import { BrowserStorageOptions, Driver } from '@browser-storage/typings';
 import { WebsqlSerializer } from './websql-serializer';
-import { Deffer } from "@browser-storage/core";
+import { Defer } from "@browser-storage/core";
 
 export interface WebsqlDriverOptions {
   description?: string;
@@ -11,7 +11,7 @@ export class WebsqlDriver implements Driver {
   private readonly _serializer: WebsqlSerializer = new WebsqlSerializer();
   private readonly description: string | undefined;
   private readonly size: number;
-  private readonly _ready: Deffer<boolean> = new Deffer<boolean>();
+  private readonly _ready: Defer<boolean> = new Defer<boolean>();
   private options: BrowserStorageOptions;
   private db: Database;
 

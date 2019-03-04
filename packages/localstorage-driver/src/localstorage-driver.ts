@@ -1,6 +1,6 @@
 import { BrowserStorageOptions, Driver, Serializer } from '@browser-storage/typings';
 import { LocalstorageSerializer } from './localstorage-serializer';
-import { Deffer } from "@browser-storage/core";
+import { Defer } from "@browser-storage/core";
 
 export function makePrefix(options: BrowserStorageOptions) {
   return [options.name, options.storeName, options.version].filter(f => !!f).join('/') + '/';
@@ -8,7 +8,7 @@ export function makePrefix(options: BrowserStorageOptions) {
 
 export class LocalstorageDriver implements Driver {
   private options: BrowserStorageOptions;
-  private readonly _ready = new Deffer<boolean>();
+  private readonly _ready = new Defer<boolean>();
 
   constructor(private readonly serializer: Serializer = new LocalstorageSerializer) {
   }

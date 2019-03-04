@@ -1,6 +1,6 @@
 import { BrowserStorageOptions, Driver, Serializer } from '@browser-storage/typings';
 import { SessionstorageSerializer } from './sessionstorage-serializer';
-import { Deffer } from "@browser-storage/core";
+import { Defer } from "@browser-storage/core";
 
 export function makePrefix(options: BrowserStorageOptions) {
   return [options.name, options.storeName, options.version].filter(f => !!f).join('/') + '/';
@@ -8,7 +8,7 @@ export function makePrefix(options: BrowserStorageOptions) {
 
 export class SessionstorageDriver implements Driver {
   private options: BrowserStorageOptions;
-  private readonly _ready: Deffer<boolean> = new Deffer<boolean>();
+  private readonly _ready: Defer<boolean> = new Defer<boolean>();
 
   constructor(private readonly serializer: Serializer = new SessionstorageSerializer) {
   }

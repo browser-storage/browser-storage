@@ -1,3 +1,3 @@
 export * from './browser-storage-event';
 export * from './browser-storage';
-export * from './deffer';
+export * from './defer';
