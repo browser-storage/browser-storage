@@ -1,6 +1,6 @@
 {
   "name": "@browser-storage/websql-driver",
-  "version": "0.0.1-beta.2",
+  "version": "0.0.1-beta.3",
   "description": "Web SQL driver for BrowserStorage",
   "author": "IKatsuba <katsuba.igor@gmail.com>",
   "source": "pkg/dist-src/index.js",
@@ -43,7 +43,7 @@
     "typescript": "^3.3.3333"
   },
   "dependencies": {
-    "@browser-storage/core": "^0.0.1-beta.2",
+    "@browser-storage/core": "^0.0.1-beta.3",
     "@browser-storage/typings": "^0.0.1-beta.1"
   },
   "@pika/pack": {

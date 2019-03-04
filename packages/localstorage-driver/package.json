@@ -1,6 +1,6 @@
 {
   "name": "@browser-storage/localstorage-driver",
-  "version": "0.0.1-beta.2",
+  "version": "0.0.1-beta.3",
   "description": "LocalStorage driver for BrowserStorage",
   "source": "pkg/dist-src/index.js",
   "types": "pkg/dist-types/index.d.ts",
@@ -43,7 +43,7 @@
     "typescript": "^3.3.3333"
   },
   "dependencies": {
-    "@browser-storage/core": "^0.0.1-beta.2",
+    "@browser-storage/core": "^0.0.1-beta.3",
     "@browser-storage/typings": "^0.0.1-beta.1"
   },
   "@pika/pack": {
