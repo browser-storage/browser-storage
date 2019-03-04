@@ -152,8 +152,10 @@ export class BrowserStorage implements Driver {
     return this._driver.destroy();
   }
 
-  public addEventListener(fn: HandlerFn) {
+  public addEventListener(fn: HandlerFn): () => any {
     this._handlerStore.add(fn);
+
+    return () => this.removeEventListener(fn);
   }
 
   public removeEventListener(fn: HandlerFn) {
