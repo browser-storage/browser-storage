@@ -5,7 +5,8 @@
   "scripts": {
     "postinstall": "lerna bootstrap",
     "build": "lerna run build --stream",
-    "test": "jest"
+    "test": "jest",
+    "publish": "lerna publish from-package --contents pkg"
   },
   "keywords": [
     "browser",
