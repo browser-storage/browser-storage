@@ -1,12 +1,13 @@
 ![](images/logo.png)
 
-# browser-storage
+# browser-storage 
 
 >The tool is in beta. Use it with caution.
 
 [![Build Status](https://travis-ci.org/browser-storage/browser-storage.svg?branch=master)](https://travis-ci.org/browser-storage/browser-storage)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f485f2824928405895ce18b6cbab0b0a)](https://www.codacy.com/app/katsuba.igor/browser-storage?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=browser-storage/browser-storage&amp;utm_campaign=Badge_Grade)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 browser-storage is a async tool for storing and managing data in a browser. browser-storage does not use third-party packages for its work.
 
