@@ -1,6 +1,6 @@
+import { Defer } from '@browser-storage/core';
 import { BrowserStorageOptions, Driver, Serializer } from '@browser-storage/typings';
 import { SessionstorageSerializer } from './sessionstorage-serializer';
-import { Defer } from "@browser-storage/core";
 
 export function makePrefix(options: BrowserStorageOptions) {
   return [options.name, options.storeName, options.version].filter(f => !!f).join('/') + '/';

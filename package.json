@@ -6,7 +6,8 @@
     "postinstall": "lerna bootstrap",
     "build": "lerna run build --stream",
     "test": "jest",
-    "publish": "lerna version && npm run build && lerna publish from-package --contents pkg"
+    "publish": "lerna version && npm run build && lerna publish from-package --contents pkg",
+    "lint": "tslint -p tsconfig.json"
   },
   "keywords": [
     "browser",
@@ -30,6 +31,7 @@
   },
   "homepage": "https://github.com/browser-storage/browser-storage#readme",
   "devDependencies": {
+    "@katsuba/tslint": "^1.0.0",
     "@pika/pack": "^0.3.3",
     "@pika/plugin-build-node": "^0.3.12",
     "@pika/plugin-build-web": "^0.3.12",

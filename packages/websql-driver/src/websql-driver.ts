@@ -1,6 +1,6 @@
+import { Defer } from '@browser-storage/core';
 import { BrowserStorageOptions, Driver } from '@browser-storage/typings';
 import { WebsqlSerializer } from './websql-serializer';
-import { Defer } from "@browser-storage/core";
 
 export interface WebsqlDriverOptions {
   description?: string;
@@ -28,6 +28,7 @@ export class WebsqlDriver implements Driver {
     await this._executeSql(`DELETE FROM ${this.options.storeName}`);
   }
 
+  // tslint:disable-next-line
   public async destroy(): Promise<void> {
   }
 

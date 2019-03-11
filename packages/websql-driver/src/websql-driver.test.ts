@@ -3,6 +3,7 @@ import { BrowserStorageOptions } from '@browser-storage/typings';
 import { WebsqlDriver, WebsqlDriverOptions } from './websql-driver';
 
 // @ts-ignore
+// tslint:disable-next-line
 const openDatabase = require('websql');
 
 window.openDatabase = openDatabase;

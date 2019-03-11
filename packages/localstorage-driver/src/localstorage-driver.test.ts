@@ -39,7 +39,7 @@ describe('LocalstorageDriver', () => {
   });
 
   test('#ready', async () => {
-    let isReady = await st.ready();
+    const isReady = await st.ready();
 
     expect(isReady).not.toBeFalsy();
     expect(isReady).toBeTruthy();

@@ -3,7 +3,8 @@ import { BrowserStorageOptions } from '@browser-storage/typings';
 import { IndexeddbDriver } from './indexeddb-driver';
 
 // @ts-ignore
-window.indexedDB = require('fake-indexeddb');
+// tslint:disable-next-line
+window.indexedDB = require('fake-indexeddb'); 
 
 let st: BrowserStorage;
 const bsOptions: BrowserStorageOptions = {

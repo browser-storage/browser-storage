@@ -1,5 +1,5 @@
+import { Defer } from '@browser-storage/core';
 import { BrowserStorageOptions, Driver } from '@browser-storage/typings';
-import { Defer } from "@browser-storage/core";
 
 export class IndexeddbDriver implements Driver {
   private _options: BrowserStorageOptions;
@@ -15,6 +15,7 @@ export class IndexeddbDriver implements Driver {
     return this._getRequestResult(objectStore.clear());
   }
 
+  // tslint:disable-next-line
   public async destroy(): Promise<void> {
   }
 
